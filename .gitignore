@@ -48,3 +48,5 @@ eslintcache
 # Misc
 *.bak
 *.orig
+
+src/firebaseConfig.js
