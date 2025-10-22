@@ -1,25 +1,74 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
-import { getAnalytics } from "firebase/analytics";
-import { fetchGoogleBookApi } from "./SearchPage";
+import { child, get, getDatabase, ref, set, update } from "firebase/database";
+// import { getAnalytics } from "firebase/analytics";
+import { fetchGoogleBookApi } from "../services/bookService";
 import { useState } from "react";
 import { firebaseConfig } from "../firebaseConfig";
 
-const AddYourOwnRecommendation = () => {
+async function checkBook(e, searchInput){
+    // test isbn: 9780747532699 || 978-0-7475-3269-9
+    e.preventDefault();
+    const result = await fetchGoogleBookApi("isbn:", searchInput);
+    if(result && result?.items?.length > 0){
+        console.log("isbn is valid, sucessfully found book")
+        return result?.items[0]?.volumeInfo?.title;
+    }
+    else{
+        console.log(" This an error", result);
+        return null;
+    }
+    
+}
 
+function readUserData(){
     // Initialize Firebase
     const firebaseApp = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(firebaseApp);
-    console.log(analytics);
-    // Initialize Realtime Database and get a reference to the service
-    function writeUserData(book) {
-        const bookDB = getDatabase(firebaseApp);
-        set(ref(bookDB, "booklist/", book), {
-            bookname: book
-        })
-        .then(()=> console.log("Thank you for your recommendation! ", book))
-        .catch((error)=> console.log("Failed to add the book, ", error));
+    const bookDB = getDatabase(firebaseApp);
+    if(bookDB){
+        console.log("Accessed to database")
+        return bookDB;
+    }else{
+        console.log("Cannot access database!")
+        return null;
     }
+    
+}
+
+// Initialize Realtime Database and get a reference to the service
+async function writeUserData(isbn, bookName) {
+    console.log("write new data in book list");
+    const bookDB = readUserData();
+        
+    try{
+        const cleanISBN = isbn.replace(/[-\s]/g, "");
+        const snapshot = await get(ref(bookDB, `booklist/${cleanISBN}`));
+        console.log("create snapshot success");
+        if(snapshot.exists()){
+            console.log("snapshot.exists()");
+            const currentData = snapshot.val();
+            const currentVotes = currentData.vote || 0;
+            const newVotes = currentVotes + 1;
+            await update(ref(bookDB, `booklist/${cleanISBN}`), { vote: newVotes});
+            console.log("You add a vote to existing book!")
+        }else{
+            console.log("else statement");
+            console.log("It is a new book not in the list!");
+            await set(ref(bookDB, `booklist/${cleanISBN}`), {
+                bookname: bookName,
+                vote: 1
+            })
+            .then(()=> console.log("Thank you for your recommendation! ", bookName))
+            .catch((error)=> console.log("Failed to add the book, the isbn exist ", error));
+        }
+    }catch(error){
+        console.error("Invalid ISBN", error);
+    };
+}
+
+const AddYourOwnRecommendation = () => {
+
+    // const analytics = getAnalytics(firebaseApp);
+    // console.log(analytics);
 
     const [ searchInput, setSearchInput ] = useState("");
 
@@ -29,15 +78,33 @@ const AddYourOwnRecommendation = () => {
                 <h1>Add Your Own Recommendation</h1>
             </div>
             <div id="isbn-form">
-                <form>
+                <form onSubmit={async (e)=> {
+                    const bookName = await checkBook(e, searchInput);
+                    if(bookName){
+                        console.log(bookName);
+                        await writeUserData(searchInput, bookName);
+                    }
+                }}>
                     <input 
                         type="text" 
                         id="isbn-input" 
                         placeholder=" please enter book isbn "
-                        onChange={(e)=>}
+                        value={searchInput}
+                        onChange={(e)=>setSearchInput(e.target.value)}
                     />
-                    <button id="isbn-submit">Submit</button>
+                    <button type="submit" id="isbn-submit">Submit</button>
                 </form>
+            </div>
+            <div id="existing-list">
+                <div>
+                    <h2>{async ()=>{const bookDB = readUserData();
+                        const snapshot = await get(ref(bookDB, `booklist/`));
+                        if(snapshot){
+                            snapshot.val();
+                        }
+                    }
+                        }</h2>
+                </div>
             </div>
         </div>
     );
