@@ -43,13 +43,13 @@ const App = () => {
 
         <main onClick={() => setMenuOpen(false)}>
           <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="/search" element={<SearchPage/>}/>
-            <Route path="/reading-list" element={<ReadingListPage/>}/>
-            <Route path="/bestsellers" element={<BestsellersPage/>}/>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/search" element={<SearchPage />}/>
+            <Route path="/reading-list" element={<ReadingListPage />}/>
+            <Route path="/bestsellers" element={<BestsellersPage />}/>
             <Route path='/add-your-own-recommendation' element={<AddYourOwnRecommendation/>}/>
-            <Route path="/about" element={<AboutPage/>}/>
-            <Route path='*' element={<PageNotFound/>}/>
+            <Route path="/about" element={<AboutPage />}/>
+            <Route path='*' element={<PageNotFound />}/>
           </Routes>
         </main>
 

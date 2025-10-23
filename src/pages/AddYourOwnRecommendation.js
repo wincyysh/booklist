@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { child, get, getDatabase, ref, set, update } from "firebase/database";
-// import { getAnalytics } from "firebase/analytics";
+import {get, getDatabase, ref, set, update } from "firebase/database";
 import { fetchGoogleBookApi } from "../services/bookService";
 import { useState } from "react";
 import { firebaseConfig } from "../firebaseConfig";
+import DisplayLive from "./DisplayLive";
 
 async function checkBook(e, searchInput){
     // test isbn: 9780747532699 || 978-0-7475-3269-9
@@ -66,10 +66,6 @@ async function writeUserData(isbn, bookName) {
 }
 
 const AddYourOwnRecommendation = () => {
-
-    // const analytics = getAnalytics(firebaseApp);
-    // console.log(analytics);
-
     const [ searchInput, setSearchInput ] = useState("");
 
     return(
@@ -94,21 +90,10 @@ const AddYourOwnRecommendation = () => {
                     />
                     <button type="submit" id="isbn-submit">Submit</button>
                 </form>
-            </div>
-            <div id="existing-list">
-                <div>
-                    <h2>{async ()=>{const bookDB = readUserData();
-                        const snapshot = await get(ref(bookDB, `booklist/`));
-                        if(snapshot){
-                            snapshot.val();
-                        }
-                    }
-                        }</h2>
-                </div>
+                <DisplayLive />
             </div>
         </div>
     );
-
 }
 
 export default AddYourOwnRecommendation;
