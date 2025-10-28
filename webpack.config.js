@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index_bundle.js',
-    publicPath: '/', // 👈 ensures correct path resolution for React Router
+    publicPath: '/booklist/', // 👈 ensures correct path resolution for React Router
   },
   target: 'web',
   devServer: {
