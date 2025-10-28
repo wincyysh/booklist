@@ -17,7 +17,7 @@ import AddYourOwnRecommendation from './pages/AddYourOwnRecommendation';
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <Router>
+    <Router basename="/booklist">
       
         <header id="main-header">
           <div id="icon-text" className={menuOpen ? "open" : ""}>
