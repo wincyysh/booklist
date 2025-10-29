@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[365],{365:(e,n,o)=>{o.r(n),o.d(n,{default:()=>s});var r=o(848);const s=function(){return(0,r.jsxs)("div",{children:[(0,r.jsx)("h1",{children:"404"}),(0,r.jsx)("p",{children:"Page Not Found"}),(0,r.jsx)("link",{to:"/",children:"Home"})]})}}}]);

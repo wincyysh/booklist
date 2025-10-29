@@ -4,15 +4,22 @@
  * @version 2.0.0
  * @license MIT
  */
-import React, {useState} from 'react';
+import { lazy, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import SearchPage from './pages/SearchPage';
-import ReadingListPage from './pages/ReadingListPage';
-import BestsellersPage from './pages/BestsellersPage';
-import AboutPage from './pages/AboutPage';
-import PageNotFound from './pages/PageNotFound';
-import AddYourOwnRecommendation from './pages/AddYourOwnRecommendation';
+const HomePage = lazy(()=>import('./pages/HomePage'));
+const SearchPage = lazy(()=>import('./pages/SearchPage'));
+const ReadingListPage = lazy(()=>import('./pages/ReadingListPage'));
+const BestsellersPage = lazy(()=>import('./pages/BestsellersPage'));
+const AboutPage = lazy(()=>import('./pages/AboutPage'));
+const PageNotFound = lazy(()=>import('./pages/PageNotFound'));
+const AddYourOwnRecommendation = lazy(()=>import('./pages/AddYourOwnRecommendation'));
+// import HomePage from './pages/HomePage';
+// import SearchPage from './pages/SearchPage';
+// import ReadingListPage from './pages/ReadingListPage';
+// import BestsellersPage from './pages/BestsellersPage';
+// import AboutPage from './pages/AboutPage';
+// import PageNotFound from './pages/PageNotFound';
+// import AddYourOwnRecommendation from './pages/AddYourOwnRecommendation';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,12 +38,12 @@ const App = () => {
 
           <div id="nav-links" className={menuOpen ? "open" : ""}>
             <ul>
-              <li><a href="/"></a></li>
-              <li><a href="/search">🔍</a></li>
-              <li><a href="/reading-list">Penguin List</a></li>
-              <li><a href="/bestsellers">Bestsellers</a></li>
-              <li><a href='/add-your-own-recommendation'>AddYourOwnRecommendation</a></li>
-              <li><a href="/about">About</a></li>
+              <li><Link to="/"></Link></li>
+              <li><Link to="/search">🔍</Link></li>
+              <li><Link to="/reading-list">Penguin List</Link></li>
+              <li><Link to="/bestsellers">Bestsellers</Link></li>
+              <li><Link to='/Linkdd-your-own-recommendation'>AddYourOwnRecommendation</Link></li>
+              <li><Link to="/Linkbout">About</Link></li>
             </ul>
           </div>
         </header>

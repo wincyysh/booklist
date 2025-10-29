@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
 import {get, getDatabase, ref, set, update } from "firebase/database";
-import { fetchGoogleBookApi } from "../services/bookService";
-import { useState } from "react";
+const fetchGoogleBookApi = lazy(()=>import("../services/bookService"));
+const DisplayLive = lazy(()=>import("./DisplayLive"));
+// import { fetchGoogleBookApi } from "../services/bookService";
+import { lazy, useState } from "react";
 import { firebaseConfig } from "../firebaseConfig";
-import DisplayLive from "./DisplayLive";
+// import DisplayLive from "./DisplayLive";
 
 async function checkBook(e, searchInput){
     // test isbn: 9780747532699 || 978-0-7475-3269-9

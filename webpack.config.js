@@ -50,4 +50,10 @@ module.exports = {
       filename: 'index.html',
     }),
   ],
+  // disable warning : The following asset(s) exceed the recommended size limit (244 KiB)
+  performance: {
+    hints: false,
+    maxAssetSize: 600000,
+    maxEntrypointSize: 600000,
+  },
 };
