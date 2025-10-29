@@ -21,10 +21,10 @@ const App = () => {
       
         <header id="main-header">
           <div id="icon-text" className={menuOpen ? "open" : ""}>
-            <a href="/">
+            <Link to="/">
               <img src="/portrait.png" alt="icon" width="90" height="90"/>
               <span>Home</span>
-            </a>            
+            </Link>            
           </div>
           
           <button id="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
