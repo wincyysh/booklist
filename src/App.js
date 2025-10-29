@@ -38,7 +38,6 @@ const App = () => {
 
           <div id="nav-links" className={menuOpen ? "open" : ""}>
             <ul>
-              <li><Link to="/"></Link></li>
               <li><Link to="/search">🔍</Link></li>
               <li><Link to="/reading-list">Penguin List</Link></li>
               <li><Link to="/bestsellers">Bestsellers</Link></li>

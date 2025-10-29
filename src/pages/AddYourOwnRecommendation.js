@@ -1,11 +1,15 @@
 import { initializeApp } from "firebase/app";
 import {get, getDatabase, ref, set, update } from "firebase/database";
-const fetchGoogleBookApi = lazy(()=>import("../services/bookService"));
+// const fetchGoogleBookApi = lazy(()=>import("../services/bookService"));
 const DisplayLive = lazy(()=>import("./DisplayLive"));
-// import { fetchGoogleBookApi } from "../services/bookService";
+import { fetchGoogleBookApi } from "../services/bookService";
 import { lazy, useState } from "react";
 import { firebaseConfig } from "../firebaseConfig";
 // import DisplayLive from "./DisplayLive";
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
+const bookDB = getDatabase(firebaseApp);
 
 async function checkBook(e, searchInput){
     // test isbn: 9780747532699 || 978-0-7475-3269-9
@@ -23,9 +27,7 @@ async function checkBook(e, searchInput){
 }
 
 function readUserData(){
-    // Initialize Firebase
-    const firebaseApp = initializeApp(firebaseConfig);
-    const bookDB = getDatabase(firebaseApp);
+    
     if(bookDB){
         console.log("Accessed to database")
         return bookDB;
