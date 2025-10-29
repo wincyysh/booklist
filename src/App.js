@@ -23,13 +23,14 @@ const AddYourOwnRecommendation = lazy(()=>import('./pages/AddYourOwnRecommendati
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const basename = process.env.NODE_ENV === 'production' ? 'booklist' : '';
   return (
-    <Router basename="/booklist">
+    <Router basename={basename}>
       
         <header id="main-header">
           <div id="icon-text" className={menuOpen ? "open" : ""}>
             <Link to="/">
-              <img src="/portrait.png" alt="icon" width="90" height="90"/>
+              <img src="./public/portrait.png" alt="icon" width="90" height="90"/>
               <span>Home</span>
             </Link>            
           </div>
