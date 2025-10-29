@@ -42,8 +42,8 @@ const App = () => {
               <li><Link to="/search">🔍</Link></li>
               <li><Link to="/reading-list">Penguin List</Link></li>
               <li><Link to="/bestsellers">Bestsellers</Link></li>
-              <li><Link to='/Linkdd-your-own-recommendation'>AddYourOwnRecommendation</Link></li>
-              <li><Link to="/Linkbout">About</Link></li>
+              <li><Link to='/add-your-own-recommendation'>AddYourOwnRecommendation</Link></li>
+              <li><Link to="/about">About</Link></li>
             </ul>
           </div>
         </header>
