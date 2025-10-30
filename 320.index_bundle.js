@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[320],{320:(e,s,r)=>{r.r(s),r.d(s,{default:()=>t}),r(540);var l=r(848);const t=function(){return(0,l.jsx)("div",{children:(0,l.jsx)("p",{children:"BestsellersPage"})})}}}]);

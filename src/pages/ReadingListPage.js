@@ -15,7 +15,9 @@ async function getData(jsonUrl) {
 }
 
 const ReadingListPage = () => {
-  const penguin = "https://wincyysh.github.io/book-static-api/data/penguin.json"; 
+  const penguin = "https://wincyysh.github.io/book-static-api/data/penguin.json";
+  const goodreads = "https://wincyysh.github.io/book-static-api/data/goodreads.json";
+  const nytimes = "https://wincyysh.github.io/book-static-api/data/nytimes.json";
   const [books, setBooks] = useState(null);
   const [error, setError] = useState(null);
   const handleClick = async (jsonUrl)=>{
@@ -31,7 +33,16 @@ const ReadingListPage = () => {
 
   return(
     <div className="publishers">
-      <button onClick={()=>handleClick(penguin)}>publishers penguin</button>
+      <div>
+        <button onClick={()=>handleClick(nytimes)}>nytimes</button>
+      </div>
+      <div>
+        <button onClick={()=>handleClick(goodreads)}>goodreads</button>
+      </div>
+      <div>
+        <button onClick={()=>handleClick(penguin)}>penguin</button>
+      </div>
+      
       {error && <p>{error}</p>}
       { books && books.length > 0 && (
         <div className="book-list">
@@ -40,7 +51,7 @@ const ReadingListPage = () => {
             <div id="book">
               <h2>{book.title}</h2>
               <a href={book.link} target="_blank" rel="noreferrer">
-                {book.cover?(<img src={book.cover}/>) : (<img className="book-cover-placeholder-thumbnail" src={'/book.svg'} />)}
+                {book.cover ? (<img src={book.cover}/>) : (<img className="book-cover-placeholder-thumbnail" src="https://placehold.co/295x400?text=No+Image+Available" />)}
               </a>
               <h6>{book.authors}</h6>
               <p>{book.description}</p>

@@ -24,15 +24,6 @@ const HomePage = () => {
       </div>
 
       <div className="card-body">
-        <Link to="/bestsellers">
-          <h5 className="card-title"> Bestsellers</h5>
-          <p className="card-text">
-            Explore trending and popular books
-          </p>
-        </Link>
-      </div>
-
-      <div className="card-body">
         <Link to="/about" className="card-text">
           <h5 className="card-title"> About</h5>
           <p className="card-text">
