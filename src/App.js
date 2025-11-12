@@ -1,5 +1,4 @@
 /*
- * @fileoverview Main App component with routing
  * @author Yingshi Huang <wincyysh@gmail.com>
  * @version 2.0.0
  * @license MIT
@@ -13,44 +12,41 @@ const AboutPage = lazy(()=>import('./pages/AboutPage'));
 const PageNotFound = lazy(()=>import('./pages/PageNotFound'));
 const AddYourOwnRecommendation = lazy(()=>import('./pages/AddYourOwnRecommendation'));
 
-
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const basename = process.env.NODE_ENV === 'production' ? 'booklist' : '';
+  
   return (
-    <Router basename={basename}>
-      
-        <header id="main-header">
-          <div id="icon-text" className={menuOpen ? "open" : ""}>
-            <Link to="/">
-              <img src="./public/portrait.png" alt="icon" width="90" height="90"/>
-              <span>Home</span>
-            </Link>            
-          </div>
-          
-          <button id="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+    <Router basename="booklist">
+      <div>
+        <div id="begin">
+          <h1>The Booklist</h1>
+          <p>Timeless, modern inspiration</p>
+        </div>
+        <button id='menu-button' onClick={()=> setMenuOpen(!menuOpen)} aria-label='nav'>
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <nav id='nav-links' className={menuOpen ? 'open' : ''}>
+          <ul>
+            <li><Link to="/" onClick={()=> setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/search" onClick={()=> setMenuOpen(false)}>Search</Link></li>
+            <li><Link to="/reading-list" onClick={()=> setMenuOpen(false)}>Publisher List</Link></li>
+            <li><Link to="/add-your-own" onClick={()=> setMenuOpen(false)}>Add Books</Link></li>
+            <li><Link to="/about" onClick={()=> setMenuOpen(false)}>About</Link></li>
+          </ul>
+        </nav>
+      </div>
 
-          <div id="nav-links" className={menuOpen ? "open" : ""}>
-            <ul>
-              <li><Link to="/search">🔍</Link></li>
-              <li><Link to="/reading-list">Penguin List</Link></li>
-              <li><Link to='/add-your-own-recommendation'>AddYourOwnRecommendation</Link></li>
-              <li><Link to="/about">About</Link></li>
-            </ul>
-          </div>
-        </header>
-
-        <main onClick={() => setMenuOpen(false)}>
-          <Routes>
-            <Route path="/" element={<HomePage />}/>
-            <Route path="/search" element={<SearchPage />}/>
-            <Route path="/reading-list" element={<ReadingListPage />}/>
-            <Route path='/add-your-own-recommendation' element={<AddYourOwnRecommendation/>}/>
-            <Route path="/about" element={<AboutPage />}/>
-            <Route path='*' element={<PageNotFound />}/>
-          </Routes>
-        </main>
-
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/search" element={<SearchPage />}/>
+          <Route path="/reading-list" element={<ReadingListPage />}/>
+          <Route path="/add-your-own" element={<AddYourOwnRecommendation/>}/>
+          <Route path="/about" element={<AboutPage />}/>
+          <Route path="*" element={<PageNotFound />}/>
+        </Routes>
+      </main>
+      <footer>© 2025 The Booklist — Designed with love for book readers</footer>
     </Router>
   );
 };

@@ -35,16 +35,19 @@ export default function DisplayLive(){
     }, []);
 
     return(
-        <div>
+        <div id="recommendation-list">
             {Object.keys(booklist).length === 0 ? (
                 <h2>Booklist is empty</h2>
             ) : (
                 Object.entries(booklist).map(([isbn, book])=>(
-                    <div>
-                        <h2>{isbn}</h2>
-                        <h2>{book.bookname}</h2>
-                        <h2>{book.vote}</h2>
+                  <div id="recommendation">
+                    <div id="recommendation-name">
+                      <h4>{book.bookname}</h4>
                     </div>
+                    <div id="vote">
+                      <h4>{book.vote}</h4>
+                    </div>
+                  </div>
                 ))
             )}
         </div>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { limitWords } from "../services/bookService";
+
 
 async function getData(jsonUrl) {
   try{
@@ -32,32 +34,51 @@ const ReadingListPage = () => {
   };
 
   return(
-    <div className="publishers">
-      <div>
-        <button onClick={()=>handleClick(nytimes)}>nytimes</button>
+    <div className="publisher">
+      <div id="publisher-title">
+        <h2> Curious about what publishers recommend? </h2>
+        <p>
+          Here, you can explore collections of books curated by different publishers. <br/>
+          Each list reflects their unique vision — from timeless classics to new discoveries. <br/>
+          Click a publisher to see their featured titles and start your reading journey.<br/>
+        </p>
       </div>
-      <div>
-        <button onClick={()=>handleClick(goodreads)}>goodreads</button>
+      <div className="button">
+        <div>
+          <button onClick={()=>handleClick(nytimes)}>nytimes</button>
+          <button onClick={()=>handleClick(penguin)}>penguin</button>
+          <button onClick={()=>handleClick(goodreads)}>goodreads</button>
+        </div>       
       </div>
-      <div>
-        <button onClick={()=>handleClick(penguin)}>penguin</button>
-      </div>
+
       
-      {error && <p>{error}</p>}
+      {error && <p className="errors">{error}</p>}
       { books && books.length > 0 && (
         <div className="book-list">
-        {books.map(
-          (book)=>(
-            <div id="book">
-              <h2>{book.title}</h2>
-              <a href={book.link} target="_blank" rel="noreferrer">
-                {book.cover ? (<img src={book.cover}/>) : (<img className="book-cover-placeholder-thumbnail" src="https://placehold.co/295x400?text=No+Image+Available" />)}
-              </a>
-              <h6>{book.authors}</h6>
-              <p>{book.description}</p>
+        {books.map((book)=>(
+          <div className="book-card">
+            <div className="book-info">
+              <div className="book-title">
+                <h2>{book.title}</h2>
+              </div>
+              <div className="book-authors">
+                <h6>{book.authors}</h6>                
+              </div>
+              <div className="book-description">
+                <p>{limitWords(book.description, 50)}</p>
+              </div>
             </div>
-          )
-        )}
+            <div className="book-img">
+              <a href={book.link} target="_blank" rel="noreferrer">
+                {book.cover ? (<img src={book.cover}/>
+              ) : (
+              <img className="book-cover-placeholder-thumbnail" src="https://placehold.co/295x400?text=No+Image+Available" />
+              )}
+              </a>
+            </div>            
+
+          </div>
+          ))}
         </div>
       )}
     </div>

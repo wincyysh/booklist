@@ -3,37 +3,134 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="card">
-      <h1>Welcome to Books Recommendation</h1>
-      <div className="card-body">
-        <Link to="/search">
-          <h5 className="card-title"> Advanced Search</h5>
-          <p className="card-text">
-            Search by title, author, ISBN, subject, or publisher
-          </p>
-        </Link>
-      </div>
+    <div className="home">
+      <section id='preface'>
+        <h2>Books Everyone Should Read</h2>
+        <p>
+          Explore a curated collection of stories that shaped generations — from literary
+          classics to modern masterpieces that continue to inspire readers around the world.
+        </p>
+      </section>
+      <section id='featured-books'>
+        <div className='book-grid'>
 
-      <div className="card-body">
-        <Link to="/reading-list">        
-          <h5 className="card-title"> Reading List</h5>
-          <p className="card-text">
-            Save and organize your favorite books
-          </p>
-        </Link>
-      </div>
+          <div className='book-card'>
+            <div className='card-img'>
+              <a href='https://books.google.de/books/about/The_Real_Happy_Pill.html?id=5IlTMQAACAAJ&redir_esc=y' target='_blank'>
+                <img src='https://m.media-amazon.com/images/I/71r9vIvh0DL._AC_UF894%2C1000_QL80_.jpg' alt='The Real Happy Pill'/>
+              </a>
+            </div>
+            <div className='intro'>
+              <h3>The Real Happy Pill</h3>
+              <h5>Anders Hansen</h5>
+              <p>
+                Is there a foolproof way to reduce stress and anxiety while you boost your memory? 
+                Raise your IQ even as you slow down the aging process? Become more creative and train your 
+                ability to focus at the same time? The answer is simple: Move! Modern neuroscience and 
+                research has shown, more than ever, that physical exercise has extraordinary effects on our cognition.
+                Physical activity, more so than Sudoku or crossword puzzles, optimizes our mental abilities 
+                and health in a way unparalleled by any drug, medication, or food supplement. 
+                And exercise doesn’t just enhance your health, energy and mood levels, and cognitive abilities. 
+                You will also learn:
+                Why physical training is the best protection against dementia
+                What type of exercise can be used to treat depression as an antidepressant
+                How exercise increases the ability to focus in children, especially kids with ADHD
+                How children with good fitness can become better in math and reading comprehension
+                Why “runner’s high,” the natural chemicals released during jogging, improves your health and mood
+                With practical and concrete advice for the layman on how to reap these benefits, 
+                as well as neuroscientific research from the last five years broken down to accessible findings, 
+                The Real Happy Pill urges you to train your body and mind for a whole-body upgrade, and start to move!
+              </p>
+            </div>
+          </div>
 
-      <div className="card-body">
-        <Link to="/about" className="card-text">
-          <h5 className="card-title"> About</h5>
-          <p className="card-text">
-            Learn more about this platform
-          </p>
-        </Link>
-      </div>
+          <div className='book-card'>
+            <div className='card-img'>
+              <a href='https://www.editionsladecouverte.fr/la_fabrique_du_consommateur-9782355221422' target='_blank'>
+                <img src='https://www.interforum.fr/images/DEC/P3/9782355221422.jpg' alt='LA Fabrique Du Consommateur'/>
+              </a>
 
+            </div>
+            <div className='intro'>
+              <h3>LA Fabrique Du Consommateur</h3>
+              <h5>Anthony Galluzzo</h5>
+              <p>
+                Around 1800, most French people were peasants who built their own houses, 
+                harvested their own grain, baked their own bread, and wove their own clothes.
+                Today, the vast majority of what we consume is produced by a network of large, 
+                geographically dispersed corporations. In barely two centuries, the self-sufficient 
+                peasant community has vanished, giving way to a myriad of urban, connected consumers.
+                This book traces the major stages of this shift towards consumerism. How was market 
+                power established? What social changes accompanied the mass circulation of goods? 
+                By exploring 19th- and 20th-century Europe and North America, this book recounts the 
+                history of numerous market mechanisms: the brand imbuing merchandise with its symbolic 
+                value, the elaborate displays created by department stores, the symbolic engineering 
+                deployed by public relations and advertising... It tells the story of the population's 
+                conversion to consumerism and the meteoric rise to power of merchants.
+              </p>            
+            </div>
+          </div>
+
+          <div className='book-card'>
+            <div className='card-img'>
+              <a href='https://www.deslegte.com/lieve-stine-weet-jij-het-429952/' target='_blank'>
+                <img src='https://www.deslegte.com/images/cached/resample/webp/data/uploads/407/514/cms_visual_233444.jpg_1429070621000_407x514_0.8_p-6bf8df2e47.webp' alt='Lieve Stine, weet jij het?'/>
+              </a>
+            </div>
+            <div className='intro'>
+              <h3>Lieve Stine, weet jij het?</h3>
+              <h5>Stine Jensen</h5>
+              <p>
+                Debut children's book by philosopher Stine Jensen
+                Finally, another accessible philosophy book for young adults
+                Why do I have to go to school when I'd rather play outside?
+                Do I always have to do what my parents say? What makes something art?
+                Can I lie to my best friend, or should I tell her everything?
+                In Dear Stine, Do You Know?, children write notes with their questions about life.
+                Philosopher Stine answers the questions. But not just any questions.
+                There are assignments, and anyone who asks a question can always expect a question in return.
+                An accessible introduction to the world of philosophy for adults too
+                Will encourage children to think and reflect Effective for use in schools
+              </p>
+            </div>
+          </div>
+
+          <div className='book-card'>
+            <div className='card-img'>
+              <a href='https://www.goodreads.com/book/show/375802.Ender_s_Game#CommunityReviews' target='_blank'>
+                <img src='https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1408303130i/375802.jpg' alt='Ender’s Game'/>
+              </a>
+            </div>
+            <div className='intro'>
+              <h3>Ender’s Game</h3>
+              <h5>Orson Scott Card</h5>
+              <p>
+                Andrew "Ender" Wiggin thinks he is playing computer simulated war games; he is, in fact,
+                engaged in something far more desperate. The result of genetic experimentation, Ender
+                may be the military genius Earth desperately needs in a war against an alien enemy
+                seeking to destroy all human life. The only way to find out is to throw Ender into ever
+                harsher training, to chip away and find the diamond inside, or destroy him utterly.
+                Ender Wiggin is six years old when it begins. He will grow up fast.
+                But Ender is not the only result of the experiment. The war with the Buggers has been 
+                raging for a hundred years, and the quest for the perfect general has been underway 
+                almost as long. Ender's two older siblings, Peter and Valentine, are every bit as unusual 
+                as he is, but in very different ways. While Peter was too uncontrollably violent, Valentine 
+                very nearly lacks the capability for violence altogether. Neither was found suitable for the 
+                military's purpose. But they are driven by their jealousy of Ender, and by their inbred 
+                drive for power. Peter seeks to control the political process, to become a ruler. 
+                Valentine's abilities turn more toward the subtle control of the beliefs of commoner and 
+                elite alike, through powerfully convincing essays. Hiding their youth and identities behind 
+                the anonymity of the computer networks, these two begin working together to shape the destiny 
+                of Earth-an Earth that has no future at all if their brother Ender fails.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="quote">
+        <p>“A reader lives a thousand lives before he dies. The man who never reads lives only one.”</p>
+      </section>
     </div>
-
   );
 };
 
