@@ -30,13 +30,44 @@ li {
   list-style: none;
 }
 
-#menu-button {
-  display: none;
+#about-page-why {
+  border-left: 6px solid var(--light-gray);
+  background-color: #fff9f3;
+}
+
+#about-page-start {
+  border-left: 6px solid var(--burnt);
+  background-color: #fff9f3;
+}
+
+#about-page-contribute {
+  border-left: 6px solid var(--orange);
+  background-color: #fff9f3;
+}
+
+#about-page-stand-for {
+  border-left: 6px solid var(--gold);
+  background-color: #fffdf5;
+}
+
+#about-page-stand-against {
+  border-left: 6px solid var(--deep-purple);
+  background-color: #f7f5fa;
+}
+
+footer {
+  background-color: var(--deep-purple);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
 }
 
 /* Desktop: 992px and wider */
 @media (min-width: 992px) {
-  
+  #menu-button {
+    display: none;
+  }
   #begin {
     background: var(--deep-purple);
     padding: .5rem .5rem;
@@ -150,13 +181,7 @@ li {
     font-size: 1.3rem;
   }
 
-  footer {
-    background-color: var(--deep-purple);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
+
 
   /* ========================= SearchPage.css ============================*/
 
@@ -421,39 +446,6 @@ li {
     text-align: justify;
   }
 
-  #about-page p:first-letter {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--maroon);
-  }
-
-
-  #about-page-why {
-    border-left: 6px solid var(--light-gray);
-    background-color: #fff9f3;
-  }
-
-  #about-page-start {
-    border-left: 6px solid var(--burnt);
-    background-color: #fff9f3;
-  }
-
-  #about-page-contribute {
-    border-left: 6px solid var(--orange);
-    background-color: #fff9f3;
-  }
-
-  #about-page-stand-for {
-    border-left: 6px solid var(--gold);
-    background-color: #fffdf5;
-  }
-
-  #about-page-stand-against {
-    border-left: 6px solid var(--deep-purple);
-    background-color: #f7f5fa;
-  }
-
-
 }
 
 /* Mobile: up to 767px wide */
@@ -465,23 +457,76 @@ li {
   }
 
   #begin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: start;
+    gap: 1rem;
     background-color: var(--deep-purple);
     padding: 1.3rem;
     color: var(--white);
+    /* text-align: center; */
+  }
+
+  #mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gold);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
+    padding-top: 2rem;
+  }
+
+  #mobile-header.open {
+    display: flex;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  #menu-button {
+    flex-shrink: 0;
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    margin-left: 0;
+    margin-right: 1.3rem; 
+    cursor: pointer;
+    color: var(--bg-content);
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
-  #begin h1 {
-    font-size: 2rem;
+  #title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  #begin p {
-    font-size: 1.2rem;
+  #title-block h1{
+    margin: 0;
+  }
+
+  #title-block p{
+    margin: 0;
   }
 
   #nav-links {
+    display: flex;
+    margin-top: 0;
+    flex-direction: column;
     background-color: var(--gold);
-    padding: 0.8rem;
+    padding: 1rem;
+    text-align: center;
   }
 
   #nav-links li {
@@ -496,25 +541,27 @@ li {
   }
 
   .book-grid {
-    grid-template-columns: 1fr; /* single column */
+    grid-template-columns: 1fr; 
     padding: 1rem;
   }
 
   .book-card {
     flex-direction: column;
-    align-items: center;
+    align-items: start; 
     padding: 1.5rem;
     gap: 1rem;
+    text-align: start;
   }
 
   .book-card img {
     width: 220px;
     height: 320px;
-    align-items: center;
+    align-items: start;
+    justify-content: start;
   }
 
   .intro {
-    text-align: center;
+    text-align: start;
   }
 
   /* Search Page */
@@ -537,12 +584,21 @@ li {
 
   .book-body {
     flex-direction: column;
+    /* align-items: center; */
+  }
+
+  .book-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 
   .book-img img {
     width: 220px;
     height: auto;
+    margin: 0 auto;
+    display: block;
   }
 
   /* Add Recommendation Page */
@@ -561,7 +617,7 @@ li {
 
   #recommendation {
     flex-direction: column;
-    text-align: center;
+    text-align: start;
     gap: 0.5rem;
   }
 
@@ -572,20 +628,48 @@ li {
 
   /* About Page */
   #about-page {
-    padding: 2rem 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding: 1rem 1.2rem;
+    gap: 2rem;
   }
 
   #about-page div {
-    padding: 1rem;
+    max-width: 800px;
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   }
 
-  #about-page-title h1 {
-    font-size: 1.8rem;
+  #about-page p {
+    line-height: 1.4;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+  }
+  
+  #about-page p:first-letter {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--maroon);
+  }
+
+  #quote {
+    background-color: var(--orange);
+    color: white;
+    padding: 1rem 1rem;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
   }
 
   footer {
     padding: 1rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -593,6 +677,9 @@ li {
 
 /* Tablet: 768px to 991px */
 @media (min-width: 768px) and (max-width: 991px) {
+  #menu-button {
+    display: none;
+  }
   #begin {
     background: var(--deep-purple);
     padding: .5rem .5rem;
@@ -706,13 +793,6 @@ li {
     font-size: 1.2rem;
   }
 
-  footer {
-    background-color: var(--deep-purple);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
 
   /* ========================= SearchPage.css ============================*/
 
@@ -979,35 +1059,4 @@ li {
     text-align: justify;
   }
 
-  #about-page p:first-letter {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--maroon);
-  }
-
-
-  #about-page-why {
-    border-left: 6px solid var(--light-gray);
-    background-color: #fff9f3;
-  }
-
-  #about-page-start {
-    border-left: 6px solid var(--burnt);
-    background-color: #fff9f3;
-  }
-
-  #about-page-contribute {
-    border-left: 6px solid var(--orange);
-    background-color: #fff9f3;
-  }
-
-  #about-page-stand-for {
-    border-left: 6px solid var(--gold);
-    background-color: #fffdf5;
-  }
-
-  #about-page-stand-against {
-    border-left: 6px solid var(--deep-purple);
-    background-color: #f7f5fa;
-  }
 }

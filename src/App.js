@@ -17,15 +17,18 @@ const App = () => {
   
   return (
     <Router basename="booklist">
-      <div>
-        <div id="begin">
+
+      <div id="begin">      
+        <button id='menu-button' onClick={()=> {setMenuOpen(!menuOpen);document.body.classList.toggle("menu-open");}} aria-label='nav'>
+          <span className="material-symbols-outlined">menu</span>
+        </button>
+        <div id='title-block'>
           <h1>The Booklist</h1>
           <p>Timeless, modern inspiration</p>
         </div>
-        <button id='menu-button' onClick={()=> setMenuOpen(!menuOpen)} aria-label='nav'>
-          <span class="material-symbols-outlined">menu</span>
-        </button>
-        <nav id='nav-links' className={menuOpen ? 'open' : ''}>
+      </div>
+      <div id='mobile-header' className={menuOpen ? 'open' : ''}>
+        <nav id='nav-links' >
           <ul>
             <li><Link to="/" onClick={()=> setMenuOpen(false)}>Home</Link></li>
             <li><Link to="/search" onClick={()=> setMenuOpen(false)}>Search</Link></li>
