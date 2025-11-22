@@ -127,9 +127,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section id="quote">
-        <p>“A reader lives a thousand lives before he dies. The man who never reads lives only one.”</p>
-      </section>
     </div>
   );
 };

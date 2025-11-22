@@ -19,6 +19,7 @@ body {
   background-color: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.6;
+  min-height: 80vh;
 }
 
 a {
@@ -454,6 +455,7 @@ footer {
 
   body {
     font-size: 0.95rem;
+    min-height: 80vh;
   }
 
   #begin {
@@ -461,11 +463,9 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-items: start;
-    gap: 1rem;
     background-color: var(--deep-purple);
     padding: 1.3rem;
     color: var(--white);
-    /* text-align: center; */
   }
 
   #mobile-header {
@@ -564,6 +564,64 @@ footer {
     text-align: start;
   }
 
+  #search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 80vh;
+    background-color: var(--bg-content);
+  }
+
+  #search-bar {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  #search-bar form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  #search-type {
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 8px;
+    font-size: 1rem;
+    flex: 1 1 150px;
+    background-color: var(--light-blue);
+  }
+
+  #searchInput {
+    padding: 0.6rem 1rem;
+    color: var(white);
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    flex: 2 1 250px;
+  }
+
+  #search-bar button {
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  #search-bar button:hover {
+    background-color: var(--burnt);
+  }
+
   /* Search Page */
   #search-bar {
     flex-direction: column;
@@ -576,54 +634,136 @@ footer {
     width: 100%;
   }
 
+  #search-container{
+    min-height: 80vh;
+  }
+
   /* Reading List */
   .book {
     flex-direction: column;
-    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--light-gray);
   }
 
   .book-body {
     flex-direction: column;
-    /* align-items: center; */
   }
 
   .book-img {
-    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .book-img img {
+
     width: 220px;
-    height: auto;
+    height: 330px;
     margin: 0 auto;
     display: block;
   }
 
-  /* Add Recommendation Page */
+  /*********** Add Recommendation Page ***************/
+
   #isbn-form {
-    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: columns;
   }
 
   #isbn-input {
+    
+    align-items: center;
     width: 100%;
-    margin-bottom: 0.8rem;
+    padding: 1rem;
+    color: var(white);
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 1rem;
   }
 
   #isbn-submit {
     width: 100%;
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--light-blue);
+  }
+
+  #add-your-own {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-light);
+    min-height: 80vh;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  #recommendation-title {
+    text-align: center;
+    color: var(--deep-purple);
+    margin-bottom: 2rem;
   }
 
   #recommendation {
-    flex-direction: column;
-    text-align: start;
-    gap: 0.5rem;
+    display: flex;
+    justify-content: space-between; /* pushes name left, vote right */
+    align-items: center;             /* vertically centers them */
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
-  #recommendation-name h4,
-  #vote h4 {
+  #recommendation-list {
+    margin-top: 2rem;
+  }
+
+  #recommendation-name h4 {
+    margin: 0;
+    color: var(--deep-purple);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+
+  .publisher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    min-height: 80vh;
+  }
+
+  .publisher h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--deep-purple);
+    margin-bottom: 0;
+  }
+
+  .publisher button {
+    /* flex-direction: row; */
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 3rem;
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+  
+  .publisher img {
+    width: 295px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: var(--radius);
   }
 
   /* About Page */
@@ -868,6 +1008,7 @@ footer {
     max-width: 1000px;
     margin: 0 auto;
     background-color: var(--light-blue);
+    min-height: 80vh;
   }
 
   .book-cover-placeholder-thumbnail{

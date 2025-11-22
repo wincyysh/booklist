@@ -78,8 +78,8 @@ const AddYourOwnRecommendation = () => {
           Show us your favorite book
         </p>
       </div>
-      <div id="isbn-form">
-        <form onSubmit={async (e)=> {
+      <div >
+        <form id="isbn-form" onSubmit={async (e)=> {
           const bookName = await checkBook(e, searchInput);
           if(bookName){
             // console.log(bookName);
@@ -89,7 +89,7 @@ const AddYourOwnRecommendation = () => {
           <input 
             type="text" 
             id="isbn-input" 
-            placeholder=" please enter book isbn "
+            placeholder="Book ISBN "
             value={searchInput}
             onChange={(e)=>setSearchInput(e.target.value)}
           />

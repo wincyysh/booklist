@@ -44,7 +44,7 @@ const ReadingListPage = () => {
         </p>
       </div>
       <div className="button">
-        <div>
+        <div className="row">
           <button onClick={()=>handleClick(nytimes)}>nytimes</button>
           <button onClick={()=>handleClick(penguin)}>penguin</button>
           <button onClick={()=>handleClick(goodreads)}>goodreads</button>
