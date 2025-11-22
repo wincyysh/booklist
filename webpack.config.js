@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index_bundle.js',
-    publicPath: '/booklist/', // 👈 ensures correct path resolution for React Router
+    publicPath: '/booklist/', // ensures correct path resolution for React Router
   },
   target: 'web',
   devServer: {
@@ -18,7 +18,7 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
-    historyApiFallback: true, // 👈 allows refreshing deep routes (fixes "Cannot GET /reading-list")
+    historyApiFallback: true, // allows refreshing deep routes (fixes "Cannot GET /reading-list")
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbooklist=self.webpackChunkbooklist||[]).push([[365],{365:(s,e,n)=>{n.r(e),n.d(e,{default:()=>l});var r=n(848);const l=function(){return(0,r.jsxs)("div",{className:"errors",children:[(0,r.jsx)("h1",{children:"404"}),(0,r.jsx)("p",{children:"Page Not Found"}),(0,r.jsx)("link",{to:"/",children:"Home"})]})}}}]);

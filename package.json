@@ -1,12 +1,14 @@
 {
-  "name": "portfolio",
+  "name": "booklist",
+  "homepage": "https://wincyysh.github.io/booklist/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve",
-    "build": "webpack",
+    "start": "webpack serve --open",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d dist",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -24,6 +26,7 @@
     "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
+    "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
     "html-webpack-plugin": "^5.6.4",
     "husky": "^9.1.7",
@@ -35,10 +38,10 @@
     "webpack-dev-server": "^5.2.2"
   },
   "dependencies": {
+    "firebase": "^12.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.3",
-    "firebase": "^12.4.0"
+    "react-router-dom": "^7.9.3"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix",
